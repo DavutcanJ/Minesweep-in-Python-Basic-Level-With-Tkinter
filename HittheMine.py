@@ -86,7 +86,7 @@ frame = Frame(window,relief=RAISED)
 
 buttons =  [[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],
 [0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
-matrix = buttons
+matrix = buttons #extra field for controlling the background
 
 def controller(row,column):
     
@@ -128,12 +128,12 @@ def mine_placer():
     for i in range(5):
         x = randint(0,9)
         y = randint(0,9)
-        if matrix[x][y]!="11":
+        if matrix[x][y]!="11": # for preventing override
             matrix[x][y]="11" 
         else:
             i-=1
 
-global time1
+global time1 #for calculating the time for recording score
 time1 = localtime()
 new_game()
 
